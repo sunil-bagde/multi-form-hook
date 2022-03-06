@@ -1,11 +1,10 @@
 /** @type {import("snowpack").SnowpackUserConfig } */
 export default {
   mount: {
-    /* ... */
+    public: "/",
+    src: "/dist",
   },
-  plugins: [
-    /* ... */
-  ],
+  plugins: ["@snowpack/plugin-react-refresh"],
   routes: [
     /* Enable an SPA Fallback in development: */
     // {"match": "routes", "src": ".*", "dest": "/index.html"},
@@ -23,4 +22,12 @@ export default {
   buildOptions: {
     /* ... */
   },
+  env: {
+    API_URL: "http://localhost:3000/",
+  },
+  alias: {
+    components: "./src/components",
+    lib: "./src/lib",
+    hooks: "./src/hooks"
+  }
 };
